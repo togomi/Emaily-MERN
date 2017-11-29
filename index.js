@@ -10,8 +10,11 @@ const app = express();
 // res -> object representing the outgoing response
 // res.send... -> immdediately send some JSON back to whoever made this request.
 app.get('/', (req, res) => {
-	res.send({ hi: 'there' });
+	res.send({ hello: 'there' });
 });
 
+// heroku PORT from environment variable (or if env variable is not defined, use 5000)
+const PORT = process.env.PORT || 5000;
+
 // node it wants to listen to which port
-app.listen(5000);
+app.listen(PORT);
