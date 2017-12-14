@@ -23,12 +23,19 @@ module.exports = app => {
 	);
 
 	// automatically handles with code this time
-	app.get('/auth/google/callback', passport.authenticate('google'));
+	// passport is middleware. And after that redirect to surveys page
+	app.get(
+		'/auth/google/callback',
+		passport.authenticate('google'),
+		(req, res) => {
+			res.redirect('/surveys');
+		}
+	);
 
 	// log out
 	app.get('/api/logout', (req, res) => {
 		req.logout(); // takes cookie and kill it
-		res.send(req.user);
+		res.redirect('/');
 	});
 
 	// whenever app send requests; req=incoming request, res=outgoing response

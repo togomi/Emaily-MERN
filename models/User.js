@@ -4,7 +4,8 @@ const { Schema } = mongoose; //destructuring; const Schema = mongoose.Schema; //
 // mongoose gets rid of property of mongoDB having random variable
 //  wants to know name of fields ahead of time
 const userSchema = new Schema({
-	googleID: String
+	googleID: String,
+	credits: { type: Number, default: 0 }
 });
 
 // create model class - create 'user' class using above schema
