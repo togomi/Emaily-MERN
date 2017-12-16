@@ -11,6 +11,10 @@ import reduxThunk from 'redux-thunk'; // action creater
 import App from './components/App';
 import reducers from './reducers';
 
+// Testing Mailer.js
+//import axios from 'axios';
+//window.axios = axios;
+
 // create new instance of redux store; helper function (reducers, initial state, middleware)
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
